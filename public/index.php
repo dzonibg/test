@@ -7,7 +7,7 @@ require_once '../config.php';
 //debug
 
 $router = new \App\Http\Director();
-echo "<br>";
+echo "<br> <hr> <br>";
 echo $router->controller;
 echo "<br>";
 echo $router->action;

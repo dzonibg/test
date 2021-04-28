@@ -6,7 +6,7 @@ use App\Models\Test;
 
 class TestController {
     public function index() {
-        return redirect("");
+        layout();
     }
 
     public function show($id) {
