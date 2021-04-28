@@ -69,7 +69,7 @@ class Director {
         $ctrl = "App\\Http\\Controllers\\" . $this->controller;
         $ctrl = new $ctrl;
         var_dump($this->action);
-        call_user_func(array($ctrl, $this->action), $this->parameters);
+        call_user_func(array($ctrl, $this->action), $this->parameters); // Maybe another class for dispatching?
     }
 
 }
