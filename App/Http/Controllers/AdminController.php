@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
-use App\Gates\AdminAuth;
+use App\Gates\AdminGate;
 
 class AdminController {
 
@@ -33,14 +33,14 @@ class AdminController {
         $password = $_POST['password'];
 
         // gate try
-        $gate = new AdminAuth();
+        $gate = new AdminGate();
         $auth = $gate->Authorize($email, $password);
         var_dump($auth);
 
     }
 
     public function authcheck() {
-        var_dump(AdminAuth::open());
+        var_dump(AdminGate::open());
     }
 
 }

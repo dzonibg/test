@@ -3,7 +3,7 @@
 namespace App\Gates;
 use App\Models\Admin;
 
-class AdminAuth {
+class AdminGate {
 
     public static function open() {
         if (isset($_SESSION['is_admin'])) {
