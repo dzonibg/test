@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 class IndexController {
 
     public function index() {
-        echo "Indexing items.";
+        return view("index/index");
     }
 
     public function show() {
