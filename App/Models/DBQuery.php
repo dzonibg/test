@@ -51,4 +51,12 @@ class Model
     public function findById($id) {
         return $this->db()->query("SELECT * FROM " . $this->tableName . " WHERE id=" . $id)->fetch();
     }
+
+    public function findByParameter($parameter, $value) {
+        $st = "SELECT * FROM admins WHERE $parameter = ?";
+        $statement = $this->db()->prepare($st);
+        $statement->execute([$value]);
+        return $statement->fetch();
+
+    }
 }
