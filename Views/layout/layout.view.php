@@ -24,7 +24,7 @@
                         Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="/admin/login">Login</a>
                         <a class="dropdown-item" href="/admin/register">Register</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Approve comments</a>

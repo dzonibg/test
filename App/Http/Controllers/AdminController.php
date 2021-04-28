@@ -20,7 +20,18 @@ class AdminController {
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $admin->insert("NULL, '$name', '$email', '$password'");
+        $admin->insert("NULL, '$name', '$email', '$password'"); // TODO: Check if email exists!
+    }
+
+    public function login() {
+        return view("admin/login");
+    }
+
+    public function authorize() {
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+
     }
 
 }
