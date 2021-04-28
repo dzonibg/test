@@ -8,7 +8,9 @@ use App\Gates\AdminGate;
 class AdminController {
 
     public function index() {
+        if (AdminGate::open()) {
         return view("admin/index");
+        }
     }
 
     public function register() {
@@ -22,6 +24,9 @@ class AdminController {
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $admin->insert("NULL, '$name', '$email', '$password'"); // TODO: Check if email exists!
+        $gate = new AdminGate();
+        $gate->Authorize($email, $_POST['password']);
+        return redirect("");
     }
 
     public function login() {
@@ -32,15 +37,20 @@ class AdminController {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // gate try
         $gate = new AdminGate();
         $auth = $gate->Authorize($email, $password);
-        var_dump($auth);
+        return redirect("");
 
     }
 
     public function authcheck() {
         var_dump(AdminGate::open());
+    }
+
+    public function logout() {
+        $gate = new AdminGate();
+        $gate->Deauthorize();
+        return redirect("");
     }
 
 }

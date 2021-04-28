@@ -21,13 +21,17 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
+                         <?=$_SESSION['name'] ?? "Admin" ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php if (!isset($_SESSION['is_admin'])) { ?>
                         <a class="dropdown-item" href="/admin/login">Login</a>
                         <a class="dropdown-item" href="/admin/register">Register</a>
+                        <?php } else { ?>
+                        <a class="dropdown-item" href="/admin/logout">Logout</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Approve comments</a>
+                        <?php } ?>
                     </div>
                 </li>
             </ul>

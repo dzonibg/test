@@ -25,5 +25,9 @@ class AdminGate {
         }
     }
 
+    public function Deauthorize() {
+        session_destroy();
+    }
+
 
 }
