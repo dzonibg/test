@@ -5,8 +5,10 @@ use App\Gates\AdminGate;
 use App\Models\Comment;
 use App\Models\Product;
 /*
- *  IndexController will take the role of indexing 3x3 products, as per project request
+ *  IndexController will take the role of indexing 3x3 products on the first page, as per project request
  *  and current routing methods.
+ *
+ *  The list method will continue the pagination.
  */
 
 class ProductController {
