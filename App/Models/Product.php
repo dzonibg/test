@@ -12,7 +12,6 @@ class Product extends Model {
         $title = $product->title;
         $description = $product->description;
         $image = $product->image;
-        var_dump($product);
 
         $st = "INSERT INTO products (title, description, image) VALUES( :title, :description, :image)";
         $statement = $this->db()->prepare($st);
@@ -23,7 +22,7 @@ class Product extends Model {
         ]);
     }
 
-    public  function update(Product $product) {
+    public function update(Product $product) {
         $st = "UPDATE products SET title=?, description=? WHERE id=?";
         $statement = $this->db()->prepare($st);
         $statement->execute([$product->title, $product->description, $product->id]);
