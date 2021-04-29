@@ -15,6 +15,6 @@ class IndexController {
     }
 
     public function show() {
-        echo "Showing particular item.";
+
     }
 }

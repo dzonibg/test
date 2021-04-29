@@ -60,4 +60,11 @@ class ProductController {
         return redirect("admin/product");
     }
 
+    public function list($page) {
+        $products = new Product();
+        $products = $products->paginate($page);
+
+        return view("index/index", compact("products", "page"));
+    }
+
 }
