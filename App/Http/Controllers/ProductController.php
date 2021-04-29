@@ -14,6 +14,11 @@ use App\Models\Product;
 class ProductController {
 
     public function index() {
+
+        /*
+         *  list method will be used for indexing.
+         */
+
         if (AdminGate::open()) {
             $data = new Product();
             $products = $data->fetchAll();
@@ -34,9 +39,10 @@ class ProductController {
             $product->title = $_POST['title'];
             $product->description = $_POST['description'];
             $product->image = "image";
+
             $randomName = str_shuffle("abcdefgh") .
                 rand(10000, 99999) . str_shuffle("ijklmnopqrst") . rand(1000, 9999) . ".jpg";
-            var_dump($_FILES["image"]);
+
             $directory = "../storage/product/images/";
             $file = $directory . $randomName;
 //        $fileType = pathinfo($file, PATHINFO_EXTENSION);
@@ -44,23 +50,29 @@ class ProductController {
             $product->image = $randomName;
             $product->store($product);
             return redirect("product");
-        } else unauthorized();
+        } else return unauthorized();
     }
 
-    public function edit($id) {
-        $product = new Product();
-        $product = $product->findById($id);
-        return view("product/edit", compact("product"));
+    public function edit($id)
+    {
+        if (AdminGate::open()) {
+            $product = new Product();
+            $product = $product->findById($id);
+            return view("product/edit", compact("product"));
+        } else return unauthorized();
     }
 
-    public function update($id) { //thought to find it and then edit it?
-        $product = new Product();
-        $product->id = $_POST['id'];
-        $product->title = $_POST['title'];
-        $product->description = $_POST['description'];
-        $product->update($product);
+    public function update($id)
+    { //thought to find it and then edit it?
+        if (AdminGate::open()) {
+            $product = new Product();
+            $product->id = $_POST['id'];
+            $product->title = $_POST['title'];
+            $product->description = $_POST['description'];
+            $product->update($product);
 
-        return redirect("product");
+            return redirect("product");
+        } else return unauthorized();
     }
 
     public function list($page) {
@@ -77,8 +89,6 @@ class ProductController {
         $product = $product->findById($id);
         $comments = new Comment();
         $comments = $comments->approvedOnly($id);
-
-
 
         return view("product/show", compact("product", "comments"));
     }
