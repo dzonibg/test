@@ -6,7 +6,9 @@
     <?php foreach ($products as $product) { ?>
                 <div class="col-sm-4">
                      <div class="card">
-                        <div class="card-header"><?=$product->title?></div>
+                        <div class="card-header">
+                            <a href="/product/<?=$product->id?>"> <?=$product->title?> </a>
+                        </div>
                          <div class="card-body">
                              <img class="img-fluid" src="/storage/product/images/<?=$product->image?>">
                              <p><?=$product->description?></p>

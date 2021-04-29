@@ -72,4 +72,13 @@ class ProductController {
         return view("index/index", compact("products", "page", "comments"));
     }
 
+    public function show($id) {
+        $product = new Product();
+        $product = $product->findById($id);
+
+
+
+        return view("product/show", compact("product"));
+    }
+
 }
