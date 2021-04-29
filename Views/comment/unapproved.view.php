@@ -1,6 +1,5 @@
 <div class="container">
-    <p>Comments Index</p>
-    <div><a href="/comment/unapproved">Approve Comments</a></div>
+    <p>Approve comments</p>
     <div>
         <table class="table">
             <thead>

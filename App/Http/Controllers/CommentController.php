@@ -44,4 +44,13 @@ class CommentController {
         } else return unauthorized();
     }
 
+    public function unapproved() {
+        if (AdminGate::open()) {
+            $comments = new Comment();
+            $comments = $comments->getUnapproved();
+
+            return view("comment/unapproved", compact("comments"));
+        }
+    }
+
 }

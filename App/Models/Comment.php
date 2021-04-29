@@ -44,4 +44,11 @@ class Comment extends Model {
         return $statement->fetchAll();
     }
 
+    public function getUnapproved() {
+        $st = "SELECT * FROM comments WHERE is_approved=0";
+        $statement = $this->db()->prepare($st);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
 }
