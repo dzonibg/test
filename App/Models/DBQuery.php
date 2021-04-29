@@ -59,4 +59,12 @@ class Model
         return $statement->fetch();
 
     }
+
+    public function findMultipleByParameter($parameter, $value) {
+        $st = "SELECT * FROM $this->tableName WHERE $parameter = ?";
+        $statement = $this->db()->prepare($st);
+        $statement->execute([$value]);
+        return $statement->fetchAll();
+
+    }
 }

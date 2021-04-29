@@ -26,7 +26,11 @@
     <div>
 
         <div>
-            <?php var_dump($comments) ?>
+            <p>People said about us...</p>
+
+            <?php
+            foreach ($comments as $comment) echo "YO ";
+            ?>
         </div>
 
 

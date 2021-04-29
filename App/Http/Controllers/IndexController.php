@@ -11,7 +11,7 @@ class IndexController {
         $products = $products->paginate(1);
         $page = 1;
         $comments = new Comment();
-        $comments = $comments->findByParameter("product_id", 0);
+        $comments = $comments->findMultipleByParameter("product_id", 0);
 
         return view("index/index", compact("products", "page", "comments"));
     }

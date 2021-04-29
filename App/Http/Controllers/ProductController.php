@@ -67,7 +67,7 @@ class ProductController {
         $products = new Product();
         $products = $products->paginate($page);
         $comments = new Comment();
-        $comments = $comments->findByParameter("product_id", 0);
+        $comments = $comments->findMultipleByParameter("product_id", 0);
 
         return view("index/index", compact("products", "page", "comments"));
     }
