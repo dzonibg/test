@@ -43,7 +43,7 @@ class ProductController {
             move_uploaded_file($_FILES['image']['tmp_name'], $file);
             $product->image = $randomName;
             $product->store($product);
-            return redirect("products");
+            return redirect("product");
         } else unauthorized();
     }
 
@@ -60,7 +60,7 @@ class ProductController {
         $product->description = $_POST['description'];
         $product->update($product);
 
-        return redirect("admin/product");
+        return redirect("product");
     }
 
     public function list($page) {

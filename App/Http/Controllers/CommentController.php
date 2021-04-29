@@ -22,6 +22,8 @@ class CommentController {
         $comment->email = $_POST['email'];
         $comment->body = $_POST['body'];
         $comment->store($comment);
+
+        return view("comment/created");
     }
 
     public function approve($id) {
