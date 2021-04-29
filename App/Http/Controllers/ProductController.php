@@ -12,7 +12,10 @@ class ProductController {
 
     public function index() {
         if (AdminGate::open()) {
-            return view("product/index");
+            $data = new Product();
+            $products = $data->fetchAll();
+
+            return view("product/index", compact("products"));
         } else unauthorized();
     }
 
