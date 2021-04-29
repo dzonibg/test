@@ -21,7 +21,7 @@
 
     <div class="text-center">
     <p>
-            <a href="/product/list/<?=$page+1?>">Next -></a>
+        <?php if ($page > 1) { ?><a href="/product/list/<?=$page-1?>"><- Previous</a> <?php } ?>    <a href="/product/list/<?=$page+1?>">Next -></a>
     </p>
     </div>
 
