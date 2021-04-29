@@ -23,4 +23,11 @@ class Product extends Model {
         ]);
     }
 
+    public  function update(Product $product) {
+        $st = "UPDATE products SET title=?, description=? WHERE id=?";
+        $statement = $this->db()->prepare($st);
+        $statement->execute([$product->title, $product->description, $product->id]);
+
+    }
+
 }

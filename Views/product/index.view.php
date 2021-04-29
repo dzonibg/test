@@ -7,6 +7,7 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Description</th>
+                <th>Change</th>
             </tr>
             </thead>
             <tbody>
@@ -16,6 +17,7 @@
                 <td><?=$product->id?></td>
                 <td><?=$product->title?></td>
                 <td><?=$product->description?></td>
+                <td> <a href="/product/edit/<?=$product->id?>">Edit</a> </td>
             </tr>
 
         <?php } ?>

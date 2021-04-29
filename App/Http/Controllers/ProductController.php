@@ -44,4 +44,20 @@ class ProductController {
         } else unauthorized();
     }
 
+    public function edit($id) {
+        $product = new Product();
+        $product = $product->findById($id);
+        return view("product/edit", compact("product"));
+    }
+
+    public function update($id) {
+        $product = new Product();
+        $product->id = $_POST['id'];
+        $product->title = $_POST['title'];
+        $product->description = $_POST['description'];
+        $product->update($product);
+
+        return redirect("admin/product");
+    }
+
 }
