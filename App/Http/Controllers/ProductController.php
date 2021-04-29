@@ -50,7 +50,7 @@ class ProductController {
         return view("product/edit", compact("product"));
     }
 
-    public function update($id) {
+    public function update($id) { //thought to find it and then edit it?
         $product = new Product();
         $product->id = $_POST['id'];
         $product->title = $_POST['title'];
