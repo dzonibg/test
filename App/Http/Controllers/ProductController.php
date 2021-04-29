@@ -11,11 +11,15 @@ use App\Models\Product;
 class ProductController {
 
     public function index() {
-        return view("product/index");
+        if (AdminGate::open()) {
+            return view("product/index");
+        } else unauthorized();
     }
 
     public function create() {
-        return view("product/create");
+        if (AdminGate::open()) {
+            return view("product/create");
+        } else unauthorized();
     }
 
     public function store() {
@@ -34,7 +38,7 @@ class ProductController {
             $product->image = $randomName;
             $product->store($product);
             return redirect("products");
-        }
+        } else unauthorized();
     }
 
 }

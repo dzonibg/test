@@ -11,4 +11,9 @@ class ErrorController {
     public function classNotFound() {
         echo "Class not found.";
     }
+
+    public function unauthorized() {
+        return view("errors/unauthorized");
+    }
+
 }

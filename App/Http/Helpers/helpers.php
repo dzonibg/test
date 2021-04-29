@@ -14,3 +14,7 @@ function layout() {
         return require_once "../Views/layout/layout.view.php";
     }
 }
+
+function unauthorized() {
+    return redirect("error/unauthorized");
+}

@@ -10,7 +10,7 @@ class AdminController {
     public function index() {
         if (AdminGate::open()) {
         return view("admin/index");
-        }
+        } else return unauthorized();
     }
 
     public function register() {
