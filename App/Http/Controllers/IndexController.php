@@ -10,8 +10,10 @@ class IndexController {
         $products = new Product();
         $products = $products->paginate(1);
         $page = 1;
+        $comments = new Comment();
+        $comments = $comments->findByParameter("product_id", 0);
 
-        return view("index/index", compact("products", "page"));
+        return view("index/index", compact("products", "page", "comments"));
     }
 
     public function show() {

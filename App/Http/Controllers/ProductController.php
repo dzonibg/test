@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Gates\AdminGate;
+use App\Models\Comment;
 use App\Models\Product;
 /*
  *  IndexController will take the role of indexing 3x3 products, as per project request
@@ -63,8 +64,10 @@ class ProductController {
     public function list($page) {
         $products = new Product();
         $products = $products->paginate($page);
+        $comments = new Comment();
+        $comments = $comments->findByParameter("product_id", 0);
 
-        return view("index/index", compact("products", "page"));
+        return view("index/index", compact("products", "page", "comments"));
     }
 
 }

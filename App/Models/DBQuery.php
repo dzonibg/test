@@ -53,7 +53,7 @@ class Model
     }
 
     public function findByParameter($parameter, $value) {
-        $st = "SELECT * FROM admins WHERE $parameter = ?";
+        $st = "SELECT * FROM $this->tableName WHERE $parameter = ?";
         $statement = $this->db()->prepare($st);
         $statement->execute([$value]);
         return $statement->fetch();
