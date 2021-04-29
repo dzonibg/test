@@ -18,7 +18,7 @@ class ProductController {
         return view("product/create");
     }
 
-    public function store() { //TODO ADD GATE
+    public function store() {
         if (AdminGate::open()) {
             $product = new Product();
             $product->title = $_POST['title'];
