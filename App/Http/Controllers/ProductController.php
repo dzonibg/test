@@ -75,10 +75,12 @@ class ProductController {
     public function show($id) {
         $product = new Product();
         $product = $product->findById($id);
+        $comments = new Comment();
+        $comments = $comments->approvedOnly($id);
 
 
 
-        return view("product/show", compact("product"));
+        return view("product/show", compact("product", "comments"));
     }
 
 }

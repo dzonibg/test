@@ -37,4 +37,11 @@ class Comment extends Model {
 
     }
 
+    public function approvedOnly($id) {
+        $st = "SELECT * FROM comments WHERE product_id=? AND is_approved=1";
+        $statement = $this->db()->prepare($st);
+        $statement->execute([$id]);
+        return $statement->fetchAll();
+    }
+
 }
