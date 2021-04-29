@@ -28,9 +28,9 @@
                         <a class="dropdown-item" href="/admin/login">Login</a>
                         <a class="dropdown-item" href="/admin/register">Register</a>
                         <?php } else { ?>
-                        <a class="dropdown-item" href="/admin/logout">Logout</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Approve comments</a>
+                        <a class="dropdown-item" href="/admin">Admin panel</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/admin/logout">Logout</a>
                         <?php } ?>
                     </div>
                 </li>
