@@ -16,4 +16,8 @@ class ErrorController {
         return view("errors/unauthorized");
     }
 
+    public function email_exists() {
+        echo "Email already exists.";
+    }
+
 }

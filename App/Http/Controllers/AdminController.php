@@ -23,10 +23,12 @@ class AdminController {
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $admin->insert("NULL, '$name', '$email', '$password'"); // TODO: Check if email exists!
-        $gate = new AdminGate();
-        $gate->Authorize($email, $_POST['password']);
-        return redirect("");
+        if (!$this->checkIfEmailExists($email)) {
+            $admin->insert("NULL, '$name', '$email', '$password'");
+            $gate = new AdminGate();
+            $gate->Authorize($email, $_POST['password']);
+            return redirect("");
+        } else return redirect("error/email_exists");
     }
 
     public function login() {
@@ -51,6 +53,12 @@ class AdminController {
         $gate = new AdminGate();
         $gate->Deauthorize();
         return redirect("");
+    }
+
+    public function checkIfEmailExists($email) {
+        $admin = new Admin();
+        $admin = $admin->findByParameter("email", $email);
+        return $admin;
     }
 
 }
