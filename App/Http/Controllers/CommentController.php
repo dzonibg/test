@@ -34,4 +34,14 @@ class CommentController {
             } else return unauthorized();
     }
 
+    public function delete($id) {
+        if (AdminGate::open()) {
+            $comment = new Comment();
+            $comment->delete($id);
+            return redirect("comment");
+
+
+        } else return unauthorized();
+    }
+
 }

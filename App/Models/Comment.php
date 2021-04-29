@@ -30,4 +30,11 @@ class Comment extends Model {
 
     }
 
+    public function delete($id) {
+        $st = "DELETE FROM comments WHERE id=?";
+        $statement = $this->db()->prepare($st);
+        $statement->execute([$id]);
+
+    }
+
 }
