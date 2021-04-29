@@ -23,4 +23,11 @@ class Comment extends Model {
         ]);
     }
 
+    public function approve($id) {
+        $st = "UPDATE comments SET is_approved=1 WHERE id=?";
+        $statement = $this->db()->prepare($st);
+        $statement->execute([$id]);
+
+    }
+
 }

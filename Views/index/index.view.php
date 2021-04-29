@@ -27,10 +27,9 @@
 
         <div>
             <p>People said about us...</p>
-
-            <?php
-            foreach ($comments as $comment) echo "YO ";
-            ?>
+            <?php foreach ($comments as $comment) { ?>
+                <p> <?=$comment->name?> said: <?=$comment->body?></p>
+            <?php } ?>
         </div>
 
 
@@ -38,7 +37,6 @@
         <div class="card">
             <div class="card-header">Write a comment</div>
             <div class="card-body">
-                Form for comment creation.
                 <form class="form-inline" action="/comment/store" method="POST">
                     <div class="input-group-text">
                     <input type="text" name="name" placeholder="Name" class="form-control mb-2 mr-sm-2">
