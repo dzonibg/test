@@ -30,4 +30,14 @@ class Product extends Model {
 
     }
 
+    public function paginate($page) {
+        $items = 9;
+        $max = $page * $items;
+        $min = $max - $items;
+        $st = "SELECT * FROM products WHERE id <= ? AND id > ? ORDER BY id ASC";
+        $statement = $this->db()->prepare($st);
+        $statement->execute([$max, $min]);
+        return $statement->fetchAll();
+    }
+
 }

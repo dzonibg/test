@@ -8,9 +8,10 @@ class IndexController {
 
     public function index() {
         $products = new Product();
-        $products = $products->fetchAll();
+        $products = $products->paginate(1);
+        $page = 1;
 
-        return view("index/index", compact("products"));
+        return view("index/index", compact("products", "page"));
     }
 
     public function show() {

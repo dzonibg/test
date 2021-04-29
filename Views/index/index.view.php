@@ -17,4 +17,10 @@
     <?php } ?>
     </div>
 
+    <div class="text-center">
+    <p>
+        <a href="/<?=$page-1?>"><- Previous</a>    <a href="/<?=$page+1?>">Next -></a>
+    </p>
+    </div>
+
 </div>
