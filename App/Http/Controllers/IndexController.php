@@ -16,7 +16,4 @@ class IndexController {
         return view("index/index", compact("products", "page", "comments"));
     }
 
-    public function show() {
-
-    }
 }
